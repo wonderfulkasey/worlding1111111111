@@ -45,7 +45,6 @@ class CharactersController < ApplicationController
           render :new
          end
       end
-    end
   
     def update
       @character.update(character_params)
@@ -56,14 +55,12 @@ class CharactersController < ApplicationController
          render :edit
     end
       end
-    end
   
    
     def destroy
       @character.destroy
       redirect_to characters_path 
-      end
-    end
+  end
   
     private
       # Use callbacks to share common setup or constraints between actions.
