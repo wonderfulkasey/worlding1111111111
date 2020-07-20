@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+ 
   resources :users
-  resources :worlds
   resources :characters
+  resources :worlds do
+    resources :characters
+  end
  
   root 'world#home'
+
+
 
   devise_for :users, controllers: {registrations: "registrations", omniauth_callbacks: "callbacks"}
  
