@@ -1,30 +1,21 @@
-<p>
-  <strong>Name:</strong>
-  <%= @character.name %>
-</p>
+<h1> <%= @character.name %> </h1>
 
-<p>
-  <strong>Character Class:</strong>
-  <%= @character.character_class %>
-</p>
+<% if @character.user == current_user %>
+    <strong><%= link_to "Edit Character", edit_character_path(@character) %><br>
+    <%= link_to 'Destroy', @character.destroy , data: { confirm: 'Are you sure?' } %> </strong> <br>
 
-<p>
-  <strong>Alignment:</strong>
-  <%= @character.alignment %>
-</p>
+<% else %>
+    <i>Created by <%= link_to @character.user.email, user_path(@character.user) %></i>
+<% end %>
 
-<p>
-  <strong>Species:</strong>
-  <%= @character.species %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @character.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Destroy', @character.destroy , data: { confirm: 'Are you sure?' } %>
-
-<%= link_to 'Back', characters_path %>
+<div class="columns">
+<div class="column">
+    <div>
+    <strong>World:</strong> <%= link_to @world.name, world_path(@world) %> <br>
+    <strong>Name:</strong> <%= @character.distance %> <br>
+    <strong>Character Class:</strong> <%= @character.character_class %> <br>
+    <strong>Alignment:</strong> <%= @character.alignment%> <br>
+    <strong>Species:</strong> <%= @character.species %> <br>
+    <strong>Description:</strong> <%= @character.description %> <br>
+    </div>
+</div>
