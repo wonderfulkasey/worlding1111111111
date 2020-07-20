@@ -11,6 +11,9 @@ class WorldsController < ApplicationController
         @worlds = World.all.sort_by{ |w| w.name }
       end
 
+      def home
+      end
+
       
         def show
           @characters = @world.characters
