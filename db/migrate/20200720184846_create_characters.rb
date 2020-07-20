@@ -7,6 +7,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :character_class
 
       t.integer :world_id
+      t.integer :user_id
 
       t.timestamps
     end
