@@ -1,0 +1,30 @@
+<p>
+  <strong>Name:</strong>
+  <%= @character.name %>
+</p>
+
+<p>
+  <strong>Character Class:</strong>
+  <%= @character.character_class %>
+</p>
+
+<p>
+  <strong>Alignment:</strong>
+  <%= @character.alignment %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @character.species %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @character.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Destroy', @character.destroy , data: { confirm: 'Are you sure?' } %>
+
+<%= link_to 'Back', characters_path %>
