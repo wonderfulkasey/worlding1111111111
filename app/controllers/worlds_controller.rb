@@ -1,4 +1,4 @@
-class WorldController < ApplicationController
+class WorldsController < ApplicationController
 
     skip_before_action :authenticate_user!, :only => [:index, :show]
 
