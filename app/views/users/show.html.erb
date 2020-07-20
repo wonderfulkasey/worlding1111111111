@@ -1,0 +1,11 @@
+<h1> <%= @user.email %> </h1>
+
+<% unless @characters.empty? %>
+    <h3>Characters Made by <%= @user.email %>:</h3>
+    <%= render partial: "characters/list" %>
+<% end %>
+
+<% unless @worlds.empty? %>
+    <h3>Worlds Made by <%= @user.email %>:</h3>
+    <%= render partial: "worlds/list" %>
+<% end %>

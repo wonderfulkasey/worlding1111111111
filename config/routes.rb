@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
  
- 
+  resources :users, only: [:show]
   resources :characters
   resources :worlds do
-    resources :characters
+    resources :characters, only: [:show, :new]
   end
  
   root 'worlds#home'
