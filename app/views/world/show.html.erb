@@ -1,0 +1,23 @@
+<p>
+  <strong>Name:</strong>
+  <%= @world.name %>
+</p>
+        
+
+<p>
+  <strong>Description:</strong>
+  <%= @world.description %>
+</p>
+
+<p>
+  <strong>Aesthetic:</strong>
+  <%= @world.aesthetic %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_world_path(@world) %> |
+<%= link_to 'Destroy', @world.destroy , data: { confirm: 'Are you sure?' } %>
+     
+
+<%= link_to 'Back', worlds_path %>
