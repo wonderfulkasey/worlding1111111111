@@ -7,10 +7,3 @@ as well as read up on others.</p>
 <p>Click the blue navigation bar to explore!</p>
 
 
-		<% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
-             <% else %>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> | 
-            <%= link_to "Login With Github", user_github_omniauth_authorize_path, :class => 'navbar-link'  %>
-          <% end %>
