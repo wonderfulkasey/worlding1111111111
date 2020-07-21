@@ -7,7 +7,9 @@
 </section>
 <br>
 <% if @world.user_id == current_user.id %>
-    <%= link_to "Edit world", edit_world_path(@world) %> 
+    <%= link_to "Edit world", edit_world_path(@world) %>  |||
+    <%= link_to 'Destroy', @world.destroy , data: { confirm: 'Are you sure?' } %> </strong> <br>
+
     <h2>Made by you!</h2>
     <% else %>
     <h2> Made by <%= @world.user.email %> </h2>
