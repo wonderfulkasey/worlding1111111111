@@ -10,8 +10,8 @@ class CharactersController < ApplicationController
      end
   
     def show
-      @character = @character.find(id: params[:id])
-      #@world = @character.world
+      @character = Character.find(params[:id])
+      @world = @character.world
 
     end
 
