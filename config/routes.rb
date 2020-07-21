@@ -2,7 +2,7 @@ Rails.application.routes.draw do
  
   root 'application#home'
 
-  #resources :users, only: [:show]
+ # resources :users, only: [:show]
   resources :characters
   resources :worlds do
     resources :characters, only: [:show, :new]
