@@ -2,15 +2,15 @@ class CharactersController < ApplicationController
 
 
     before_action :authenticate_user!
-    before_action :set_character, except: [:index, :new, :create]
-    skip_before_action :verify_authenticity_token, only: [:destroy]
+    #before_action :set_character, except: [:index, :new, :create]
+    #skip_before_action :verify_authenticity_token, only: [:destroy]
    
     def index
-      @characters = Character.all.sort_by{ |c| c.name }
-    end
+      @characters = Character.all 
+     end
   
     def show
-        @world = @character.world
+        @character = Character.find(params[:id])
     end
   
     def new

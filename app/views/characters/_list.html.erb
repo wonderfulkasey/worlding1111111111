@@ -1,5 +1,7 @@
 <ul>
 <% characters.each do |c| %>
-    <li><%= link_to c.name, world_character_path(c.world, c) %></li>
-<% end %>
+       <li><%= link_to c.name, world_character_path(c.world, c) %></li>
+
+   <% end %> 
+  
 </ul>

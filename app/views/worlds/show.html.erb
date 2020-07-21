@@ -19,20 +19,16 @@
         <strong>big_bad:</strong> <%= @world.big_bad %> <br />
         </div>
         <br>
-        <div>
-        <strong>Add a <%= link_to "New character", new_world_character_path(@world) %> at this world</strong>
-        </div>
-
-        <% unless @characters.blank? %>
-            <h3>All characters at <%= @world.name %></h3>
-            <div>
-            <%= render partial: "characters/list", locals: {characters: @characters} %>
-            </div>
-        <% else %>
-            <h3>There are no characters here yet! Add one by following the link above.</h3>
-        <% end %>
+       
+       <h1> all characters at <%= @world.name%> </h1>
+     
+    
+    <div>
+    <%= render partial: "characters/list", locals: {characters: @characters} %>
     </div>
 
+</div>
+  
     
     </div>
 </div>
