@@ -1,6 +1,9 @@
 class CharactersController < ApplicationController
 
-    skip_before_action :authenticate_user!, :only => [:index, :show]
+
+    before_action :authenticate_user!
+    before_action :set_character, except: [:index, :new, :create]
+    skip_before_action :verify_authenticity_token, only: [:destroy]
    
     def index
       @characters = Character.all.sort_by{ |c| c.name }
@@ -63,14 +66,10 @@ class CharactersController < ApplicationController
   end
   
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_character
-        @character = Character.find(params[:id])
-      end
+     
   
-      # Only allow a list of trusted parameters through.
-      def character_params
-        params.require(:character).permit(:name, :character_class, :alignment, :species, :description, :world_id)
+     def character_params
+        params.require(:character).permit(:name, :character_class, :alignment, :species, :world_id)
       end
 
 end
