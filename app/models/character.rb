@@ -6,4 +6,9 @@ class Character < ApplicationRecord
     validates :alignment, presence: true, length: { minimum: 2 }
     validates :species, presence: true, length: { minimum: 2 }
     validates :character_class, presence: true, length: { minimum: 2 }
+
+    def self.search(query)
+        where("name LIKE ?", "%#{query}%")
+    end
+
 end

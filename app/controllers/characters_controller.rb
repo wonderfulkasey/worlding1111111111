@@ -10,24 +10,21 @@ class CharactersController < ApplicationController
      end
   
     def show
-      #@user = User.find_by(id: params[:id])
+      #@character = @character.find(id: params[:id])
       @world = @character.world
 
     end
 
   
     def new
-      
-            @character = Character.new(world_id: params[:world_id])
-       
+      if params[:world_id] && !World.exists?(params[:world_id])
+        redirect_to worlds_path, alert: "World not found."
+      else
+        @character = Character.new(world_id: params[:world_id])
+      end
     end
 
-    def edit
-      @character = Character.find(params[:id])
-     
-      redirect_to world_characters_path(w), alert: "Character Not Existing!" if @character.nil?
-           
-    end
+   
   
     def create
       @character = Character.new(character_params)
@@ -42,6 +39,17 @@ class CharactersController < ApplicationController
           flash[:errors] = @character.errors.full_messages
           render :new
          end
+      end
+
+      def edit
+        if params[:world_id]
+          w = World.find_by(id: params[:world_id])
+          if w.nil?
+            redirect_to worlds_path, alert: "world not found."
+          else
+            @character = w.characters.find_by(id: params[:id])
+            redirect_to world_characters_path(w), alert: "character not found." if @character.nil?
+          end
       end
   
     def update
