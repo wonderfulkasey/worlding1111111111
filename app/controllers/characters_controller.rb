@@ -11,29 +11,22 @@ class CharactersController < ApplicationController
   
     def show
         @character = Character.find(params[:id])
-        @world = World.find(params[:id])
+        
+       # @world = World.find(params[:id])
 
     end
   
     def new
       
-        if params[:world_id] && !World.exists?(params[:world_id])
-            redirect_to worlds_path, alert: "World Not Existing!"
-        else  
             @character = Character.new(world_id: params[:world_id])
-        end
+       
     end
 
     def edit
-        if params[:world_id]
-            w = World.find_by(id: params[:world_id])
-            if w.nil?
-                redirect_to worlds_path, alert: "World Not Existing!"
-            else  
-                @character = w.characters.find_by(id: params[:id])
-                redirect_to world_characters_path(w), alert: "Character Not Existing!" if @character.nil?
-            end
-            end
+      @character = Character.find(params[:id])
+     
+      redirect_to world_characters_path(w), alert: "Character Not Existing!" if @character.nil?
+           
     end
   
     def create
