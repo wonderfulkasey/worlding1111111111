@@ -1,17 +1,15 @@
 class WorldsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_world, except: [:index, :new, :create, :show]
+ #before_action :set_world, except: [:index, :new, :create, :show]
 
     def index
-        @worlds = World.all.sort_by{ |w| w.name }
+        @worlds = World.all
       end
 
       
         def show
-          set_world
-
-          @characters = @world.characters
+          @world = World.find(params[:id])
         end
 
         def character

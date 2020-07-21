@@ -1,17 +1,19 @@
- <div class="container">
-            <h1 class="title">All Worlds</h1>
-        </div>
+<div class="main world-show">
 
-<div class="columns">
-<div class="column">
-    <div>
-    <strong><%= link_to "Create a New World", new_world_path %></strong>
-    </div>
+  <div class="container">
 
-    <div class="column">
-    <div>
-    <%= render partial: "worlds/list", locals: {worlds: @worlds} %>
-    </div>
+    <% @worlds.each do |world| %>
+    <!-- Display an world's info here -->
+    <div class="world">
+      <%= image_tag world.image %>
+      <!-- world image -->
+      <div class="info">
+        <h3 class="world-name"><%= world.name %> </h3>
+      </div>
+      </div>
+
+   
+  </div>
 </div>
-    
-</div>
+
+<% end %>
