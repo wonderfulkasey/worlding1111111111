@@ -1,37 +1,25 @@
-<%= form_with(model: character, local: true) do |form| %>
-  <% if character.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
+<%= form_for(form_character) do |f| %>
 
-      <ul>
-        <% character.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <% if form_character.world.nil? %>
+        <label class="label">character world:</label>
+        <%= f.select :world_id, options_from_collection_for_select(World.all, :id, :name) %><br>
+        <i>Don't see your world? Create a new world <%= link_to "here.", new_world_path %></i><br><br>
+    <% else %>
+        <%= hidden_field_tag "character[world_id]", form_character.world_id %>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <label class="label"> Name: </label>
+    <%= f.text_field :name %><br><br>
 
-  <div class="field">
-    <%= form.label :character_class %>
-    <%= form.text_field :character_class %>
-  </div>
+    <label class="label">Character Class:</label>
+    <%= f.text_field :character_class %><br><br>
 
-  <div class="field">
-    <%= form.label :alignment %>
-    <%= form.text_field :alignment %>
-  </div>
+    <label class="label">Alignment:</label>
+    <%= f.text_field :alignment %><br><br>
 
-  <div class="field">
-    <%= form.label :species %>
-    <%= form.text_field :species %>
-  </div>
+    <label class="label">Species:</label>
+    <%= f.text_field :species %><br><br>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+ 
+   <input type="submit" value="Submit" class="button is-primary">
 <% end %>
