@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :characters, only: [:show, :new]
   end
  
-  root 'worlds#home'
+  root 'application#home'
 
 
 
