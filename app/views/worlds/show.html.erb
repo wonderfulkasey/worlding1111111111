@@ -23,15 +23,15 @@
         <strong>big_bad:</strong> <%= @world.big_bad %> <br />
         </div>
         <br>
-       
-    
-    <strong><%= link_to "Create a New character", new_character_path %></strong>
 
+        Add a <%= link_to "New Character", new_world_character_path(@world) %>
+
+       
             <h3>All characters at <%= @world.name %></h3>
             <div>
             <%= render partial: "characters/list", locals: {characters: @characters} %>
             </div>
-    
+       
     </div>
     
 </div>

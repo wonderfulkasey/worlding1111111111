@@ -10,15 +10,15 @@ class CharactersController < ApplicationController
      end
   
     def show
-     # @character = @character.find(id: params[:id])
-      @world = @character.world
+      @character = @character.find(id: params[:id])
+      #@world = @character.world
 
     end
 
   
     def new
       if params[:world_id] && !World.exists?(params[:world_id])
-        redirect_to worlds_path, alert: "World not found."
+       redirect_to worlds_path, alert: "World not found."
       else
         @character = Character.new(world_id: params[:world_id])
       end
