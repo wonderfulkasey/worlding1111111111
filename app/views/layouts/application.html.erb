@@ -9,8 +9,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
 
+
+  <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
         <a class="navbar-brand" href="/">Worlding</a>
@@ -20,12 +21,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-              <a class="nav-link" href="/">Profile</a>
-          <li class="nav-item active">
               <a class="nav-link" href="/worlds">Worlds</a>
-        
-        </ul>
-
+         </ul>
         <p class="navbar-text float-right">
           <% if user_signed_in? %>
             Logged in as <strong><%= current_user.email %></strong>.
@@ -37,22 +34,22 @@
             <%= link_to "Login With Github", user_github_omniauth_authorize_path, :class => 'navbar-link'  %>
           <% end %>
         </p>
-
        </div>
       </div>
     </nav>
 
-       <%=render 'layouts/alerts'%>
 
-  <div class="container">
-        <%= yield %>
-    </div>
+      <%=render 'layouts/alerts'%>
 
-    <footer>
-      <div class="container">
-         Worlding <%= Time.now.year %>
-      </div>
-    </footer>
+       <div class="container">
+         <%= yield %>
+       </div>
+
+      <footer>
+         <div class="container">
+            Worlding <%= Time.now.year %>
+         </div>
+      </footer>
 
   </body>
 </html>
