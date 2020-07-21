@@ -20,7 +20,7 @@
         <strong>Add a <%= link_to "New Character", new_world_character_path(@world) %> to this world.</strong>
         </div>
 
-        <% unless @characterss.empty? %>
+        <% unless @characters.empty? %>
             <h3>All Characters at <%= @world.name %></h3>
             <div>
             <%= render partial: "character/list" %>
