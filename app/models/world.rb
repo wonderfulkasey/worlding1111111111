@@ -2,10 +2,10 @@ class World < ApplicationRecord
     belongs_to :user
     has_many :characters
 
-    validates :name, presence: true, length: { minimum: 2 }
-    validates :aesthetic, presence: true, length: { minimum: 2 }
-    validates :big_bad, presence: true, length: { minimum: 2 }
-    validates :description, presence: true, length: { minimum: 2 }
+    validates :name, presence: true
+    validates :aesthetic, presence: true
+    validates :big_bad, presence: true
+    validates :description, presence: true
 
 
     def self.search(query)
