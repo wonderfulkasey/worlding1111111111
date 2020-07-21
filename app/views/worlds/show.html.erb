@@ -24,15 +24,15 @@
         </div>
         <br>
        
-       <h1> all characters at <%= @world.name%> </h1>
-     
     
-    <div class="columns">
-<div class="column">
-    <div>
     <strong><%= link_to "Create a New character", new_character_path %></strong>
+
+            <h3>All characters at <%= @world.name %></h3>
+            <div>
+            <%= render partial: "characters/list", locals: {characters: @characters} %>
+            </div>
+    
     </div>
-    <br>
     
 </div>
 
