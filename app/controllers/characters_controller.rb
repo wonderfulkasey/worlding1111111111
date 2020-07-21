@@ -2,19 +2,19 @@ class CharactersController < ApplicationController
 
 
     before_action :authenticate_user!
-    #before_action :set_character, except: [:index, :new, :create]
-    #skip_before_action :verify_authenticity_token, only: [:destroy]
+    before_action :set_character, except: [:index, :new, :create]
+    skip_before_action :verify_authenticity_token, only: [:destroy]
    
     def index
       @characters = Character.all 
      end
   
     def show
-        @character = Character.find(params[:id])
-        
-       # @world = World.find(params[:id])
+      @user = User.find_by(id: params[:id])
+      @world = @character.world
 
     end
+
   
     def new
       
@@ -61,8 +61,7 @@ class CharactersController < ApplicationController
   end
   
     private
-     
-  
+
      def character_params
         params.require(:character).permit(:name, :character_class, :alignment, :species, :world_id)
       end

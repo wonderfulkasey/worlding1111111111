@@ -1,7 +1,7 @@
 class WorldsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_world, only: [:edit, :update]
+  before_action :set_world, except: [:index, :new, :create, :show]
 
     def index
         @worlds = World.all
@@ -71,10 +71,7 @@ class WorldsController < ApplicationController
       
         private
           # Use callbacks to share common setup or constraints between actions.
-          def set_world
-            @world = World.find(params[:id])
-          end
-          # Only allow a list of trusted parameters through.
+# Only allow a list of trusted parameters through.
           def world_params
             params.require(:world).permit(:name, :description, :aesthetic, :big_bad)
           end
