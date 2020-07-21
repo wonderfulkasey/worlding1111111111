@@ -31,6 +31,13 @@
     <%= render partial: "characters/list", locals: {characters: @characters} %>
     </div>
 
+    <% if @world.user_id == current_user.id %>
+    <%= link_to "Add a new character", new_character_path(@world) %> 
+    <% else %>
+    <h2> </h2>
+    <br>
+<% end %>
+
 
 </div>
   
