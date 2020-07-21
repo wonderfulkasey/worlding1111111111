@@ -11,5 +11,6 @@ class World < ApplicationRecord
     def self.search(query)
         where("name LIKE ?", "%#{query}%")
     end
-    #defabc or search?
+    
+    
 end

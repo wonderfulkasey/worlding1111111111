@@ -3,15 +3,13 @@
 <% if @character.user == current_user %>
     <strong><%= link_to "Edit Character", edit_character_path(@character) %><br>
     <%= link_to 'Destroy', @character.destroy , data: { confirm: 'Are you sure?' } %> </strong> <br>
-
 <% else %>
     <i>Created by <%= link_to @character.user.email, user_path(@character.user) %></i>
 <% end %>
 
 <div class="columns">
 <div class="column">
-    <div>
-    
+  <div>
     <strong>World:</strong> <%= link_to @world.name, world_path(@world) %> <br>
     <strong>Name:</strong> <%= @character.name %> <br>
     <strong>Character Class:</strong> <%= @character.character_class %> <br>
