@@ -1,6 +1,11 @@
-<h1>Editing Character</h1>
+<h2>Edit <%= @character.name %> </h2>
 
-<%= render 'form', character: @character %>
+<%= render "application/errors" %>
 
-<%= link_to 'Show', @character %> |
-<%= link_to 'Back', characters_path %>
+<%= render partial: "form", locals: {form_character: @character} %>
+
+<br>
+
+<%= form_tag(character_path(@character), method: "delete") do %>
+    <input type="submit" value="Delete" class="button is-danger">
+<% end %>
