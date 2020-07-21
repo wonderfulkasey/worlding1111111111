@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
 
 
     before_action :authenticate_user!
-    before_action :set_character, except: [:index, :new, :create]
+    before_action :set_character, only: [:destroy, :show, :edit, :update]
     skip_before_action :verify_authenticity_token, only: [:destroy]
    
     def index
@@ -10,7 +10,7 @@ class CharactersController < ApplicationController
      end
   
     def show
-      #@character = @character.find(id: params[:id])
+      @character = @character.find(id: params[:id])
       @world = @character.world
 
     end
