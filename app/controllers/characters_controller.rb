@@ -1,6 +1,4 @@
 class CharactersController < ApplicationController
-
-
     before_action :authenticate_user!
     before_action :set_character, only: [:destroy, :show, :edit, :update]
     skip_before_action :verify_authenticity_token, only: [:destroy]
@@ -12,7 +10,6 @@ class CharactersController < ApplicationController
     def show
       @character = Character.find(params[:id])
       @world = @character.world
-
     end
 
   
@@ -24,22 +21,19 @@ class CharactersController < ApplicationController
       end
     end
 
-   
   
     def create
       @character = Character.new(character_params)
       @character.user_id = current_user.id
-  
-      
         if @character.valid?
             @character.save
             redirect_to character_path(@character)
-        
         else
           flash[:errors] = @character.errors.full_messages
           render :new
          end
       end
+
 
       def edit
         if params[:world_id]
@@ -52,6 +46,7 @@ class CharactersController < ApplicationController
           end
       end
     end
+
   
     def update
       @character.update(character_params)
@@ -60,7 +55,7 @@ class CharactersController < ApplicationController
       else
          flash[:errors] = @character.errors.full_messages
          render :edit
-    end
+       end
       end
   
    
@@ -68,6 +63,7 @@ class CharactersController < ApplicationController
       @character.destroy
       redirect_to characters_path 
   end
+  
   
     private
 
