@@ -22,9 +22,7 @@ class WorldsController < ApplicationController
           @world = World.new
         end
       
-        # GET /worlds/1/edit
-        def edit
-        end
+      
       
         # POST /worlds
         # POST /worlds.json
@@ -41,10 +39,17 @@ class WorldsController < ApplicationController
             
         end
         end
+
+          # GET /worlds/1/edit
+          def edit
+            @user = current_user
+            @world = World.find(params[:id])
+          end
       
         # PATCH/PUT /worlds/1
         # PATCH/PUT /worlds/1.json
         def update
+          @user = current_user
           @world.update(world_params)
 
           if @world.save
