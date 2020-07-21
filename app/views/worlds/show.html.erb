@@ -27,14 +27,21 @@
        <h1> all characters at <%= @world.name%> </h1>
      
     
+    <div class="columns">
+<div class="column">
+    <div>
+    <strong><%= link_to "Create a New character", new_character_path %></strong>
+    </div>
+    <br>
+    
+</div>
+
+<div class="column">
     <div>
     <%= render partial: "characters/list", locals: {characters: @characters} %>
     </div>
-
-    
-    <%= link_to "Add a new character", new_character_path(@world) %> 
-    
-
+</div>
+</div>
 
 </div>
   

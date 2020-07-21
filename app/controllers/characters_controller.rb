@@ -51,6 +51,7 @@ class CharactersController < ApplicationController
             redirect_to world_characters_path(w), alert: "character not found." if @character.nil?
           end
       end
+    end
   
     def update
       @character.update(character_params)
