@@ -1,19 +1,24 @@
-<div class="main world-show">
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">All worlds</h1>
+        </div>
+    </div>
+</section>
+<br>
 
-  <div class="container">
-
-    <% @worlds.each do |world| %>
-    <!-- Display an world's info here -->
-    <div class="world">
-      <%= image_tag world.image %>
-      <!-- world image -->
-      <div class="info">
-        <h3 class="world-name"><%= world.name %> </h3>
-      </div>
-      </div>
-
-   
-  </div>
+<div class="columns">
+<div class="column">
+    <div>
+    <strong><%= link_to "Create a New world", new_world_path %></strong>
+    </div>
+    <br>
+    
 </div>
 
-<% end %>
+<div class="column">
+    <div>
+    <%= render partial: "worlds/list", locals: {worlds: @worlds} %>
+    </div>
+</div>
+</div>
