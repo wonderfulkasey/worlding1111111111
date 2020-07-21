@@ -2,10 +2,10 @@
 
 <% unless @characters.empty? %>
     <h3>Characters Made by <%= @user.email %>:</h3>
-    <%= render partial: "characters/list" %>
+    <%= render partial: "characters/list", locals: {characters: @characters} %>
 <% end %>
 
 <% unless @worlds.empty? %>
     <h3>Worlds Made by <%= @user.email %>:</h3>
-    <%= render partial: "worlds/list" %>
+    <%= render partial: "worlds/list", locals: {worlds: @worlds} %>
 <% end %>
